@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Joseph Loyd & Denice — July 18, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@100;200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* ── DUSTY BLUE DOMINANT (Lover-washed) ── */
+  --db-900:#1c2d3f;
+  --db-800:#253646;
+  --db-700:#2e4a62;
+  --db-600:#3d6080;
+  --db-500:#4f7a9a;
+  --db-400:#6b96b5;
+  --db-300:#8fb2cc;
+  --db-200:#b8d0e3;
+  --db-150:#cfe0ec;
+  --db-100:#deeaf5;
+  --db-50:#eef5fb;
+  /* Lover pastels — soft blush & lavender as accents only */
+  --blush:#f4b8cc;
+  --blush-soft:#f9d5e2;
+  --lavender:#c8b8e0;
+  --lav-soft:#e2d8f5;
+  /* Gold ornament */
+  --gold:#c8a96e;
+  --gold-light:#e0c99a;
+  /* Lover sky bg — tinted dusty blue */
+  --sky-top:#b8d8ec;    /* blue-sky from photo */
+  --sky-mid:#cdd8ea;
+  --sky-low:#e8d0df;    /* blush horizon */
+  --sky-pale:#f2e8f0;
+  /* Text */
+  --text-dark:#1a2533;
+  --text-mid:#3e5870;
+  --text-light:#7a9ab0;
+  --cream:#f5f8fc;
+  --white:#ffffff;
+  --glass:rgba(255,255,255,0.6);
+  --glass-border:rgba(143,178,204,0.28);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--db-50);
+  color:var(--text-dark);
+  overflow-x:hidden;
+  text-align:center;
+}
+
+/* ─── Grain texture for depth ─── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9997;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size:200px;opacity:0.5;mix-blend-mode:multiply;
+}
+
+/* Typography system */
+h1,h2,h3,
+.section-title,.hero-title,.intro-names,.countdown-title,
+.venue-name,.ent-name,.sponsor-name,.hashtag-main,
+.footer-logo,.tl-event,.reminder-title{
+  font-family:'Cormorant Garamond',serif;
+}
+.script{font-family:'Great Vibes',cursive}
+
+/* ═══════════════════════════════════════
+   CINEMATIC INTRO — Lover sky in dusty blue
+═══════════════════════════════════════ */
+#intro{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:opacity 2s ease,visibility 2s ease;
+}
+#intro.hidden{opacity:0;visibility:hidden;pointer-events:none}
+
+/* Lover sky gradient — dusty blue dominant with pastel blush hints */
+.intro-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(175deg,
+    #2e4a62 0%,
+    #4f7a9a 15%,
+    #7da8c8 28%,
+    #a8c8de 40%,
+    #c8d8e8 52%,
+    #dcc8d8 65%,
+    #e8c0d0 78%,
+    #d4c8e0 88%,
+    #b8c8d8 100%
+  );
+}
+
+/* Cloud puffs — soft lavender-blush clouds drifting */
+.intro-cloud{
+  position:absolute;border-radius:50%;
+  filter:blur(var(--cb,50px));
+  width:var(--cw,400px);height:var(--ch,200px);
+  top:var(--ct,20%);left:var(--cl,10%);
+  background:radial-gradient(ellipse,var(--cc,rgba(255,255,255,0.45)) 0%,transparent 70%);
+  animation:cloud-float var(--cd,30s) ease-in-out infinite;
+  animation-delay:var(--cde,0s);
+}
+@keyframes cloud-float{
+  0%,100%{transform:translateX(0) scale(1);opacity:0.8}
+  50%{transform:translateX(35px) scale(1.05);opacity:1}
+}
+
+/* Sparkle particles — blush & blue */
+.intro-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.intro-particles span{
+  position:absolute;
+  width:var(--ps,2px);height:var(--ps,2px);
+  border-radius:50%;
+  background:rgba(255,255,255,var(--pa,0.9));
+  left:var(--px,50%);bottom:-10px;
+  animation:floatup var(--pd,14s) linear infinite;
+  animation-delay:var(--pde,0s);
+}
+/* Heart sparkle variant */
+.intro-particles span.heart{
+  border-radius:0;
+  background:transparent;
+  font-size:var(--ps,10px);
+  line-height:1;
+}
+@keyframes floatup{
+  0%{transform:translateY(0) scale(1) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  90%{opacity:0.3}
+  100%{transform:translateY(-105vh) scale(0.3) rotate(30deg);opacity:0}
+}
+
+.intro-content{
+  position:relative;z-index:2;
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.8rem;
+}
+.intro-eyebrow{
+  font-family:'Jost',sans-serif;font-weight:200;
+  letter-spacing:0.6em;font-size:0.75rem;text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+  opacity:0;animation:fadein 1s ease 0.5s forwards;
+}
+.intro-names {
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  line-height: 0.90; /* Reduced from 0.92 */
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 50px rgba(46,74,98,0.5), 0 1px 0 rgba(255,255,255,0.3);
+  opacity: 0;
+  animation: fadein 1.3s ease 0.9s forwards;
+}
+
+.intro-amp {
+  font-family: 'Great Vibes', cursive;
+  font-size: 0.65em;
+  color: rgba(255,255,255,0.75);
+  font-style: normal;
+  display: block;
+  margin: 0.15em 0; /* Added negative margin to pull names closer */
+  text-shadow: 0 2px 20px rgba(200,120,160,0.4);
+}
+.intro-rule{
+  display:flex;align-items:center;gap:1.2rem;
+  opacity:0;animation:fadein 1s ease 1.8s forwards;
+}
+.intro-rule span{display:block;height:1px;width:70px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5))}
+.intro-rule span:last-child{background:linear-gradient(90deg,rgba(255,255,255,0.5),transparent)}
+.intro-rule em{font-style:normal;color:rgba(255,255,255,0.6);font-size:0.75rem}
+.intro-tag{
+  font-family:'Jost',sans-serif;font-weight:200;
+  letter-spacing:0.3em;font-size:0.65rem;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);
+  opacity:0;animation:fadein 1s ease 2.6s forwards;
+}
+.intro-skip{
+  position:absolute;bottom:2.5rem;right:2.5rem;
+  font-family:'Jost',sans-serif;font-size:0.65rem;
+  letter-spacing:0.35em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);cursor:pointer;
+  border:none;background:none;
+  opacity:0;animation:fadein 1s ease 3.2s forwards;
+  transition:color 0.3s;
+}
+.intro-skip:hover{color:rgba(255,255,255,0.9)}
+@keyframes fadein{to{opacity:1}}
+
+/* ═══════════════════════════════
+   MUSIC BUTTON
+═══════════════════════════════ */
+#music-btn{
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:1000;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,0.25);
+  border:1px solid rgba(143,178,204,0.45);
+  backdrop-filter:blur(16px);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:var(--db-600);transition:all 0.3s;
+  box-shadow:0 4px 20px rgba(79,122,154,0.15);
+}
+#music-btn:hover{background:rgba(255,255,255,0.45);border-color:var(--blush)}
+#music-btn.playing{animation:pulse-btn 2.4s ease infinite}
+@keyframes pulse-btn{
+  0%,100%{box-shadow:0 0 0 0 rgba(244,184,204,0.4)}
+  50%{box-shadow:0 0 0 12px rgba(244,184,204,0)}
+}
+
+/* ═══════════════════════════════
+   NAV
+═══════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.4rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.5s;
+}
+nav.scrolled{
+  background:rgba(238,245,251,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(143,178,204,0.2);
+  padding:0.9rem 3rem;
+}
+.nav-logo{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;color:var(--db-600);text-decoration:none;
+  transition:color 0.3s;
+}
+nav.scrolled .nav-logo{color:var(--db-700)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:0.7rem;letter-spacing:0.38em;text-transform:uppercase;
+  color:rgba(255,255,255,0.65);text-decoration:none;
+  transition:color 0.3s;font-weight:300;
+}
+nav.scrolled .nav-links a{color:var(--text-mid)}
+.nav-links a:hover{color:var(--blush)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:1px;background:var(--db-400);transition:all 0.3s}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  nav.scrolled{padding:0.8rem 1.5rem}
+  .nav-links{display:none;position:fixed;inset:0;
+    background:linear-gradient(160deg,var(--db-50),var(--sky-pale));
+    flex-direction:column;align-items:center;justify-content:center;gap:3rem;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-links a{color:var(--db-600)!important;font-size:0.8rem}
+  .hamburger{display:flex;z-index:100}
+}
+
+/* ═══════════════════════════════
+   HERO — Lover sky, dusty blue dominant
+═══════════════════════════════ */
+#hero{
+  height:100vh;min-height:700px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* Sky gradient slides — Lover sky with dusty blue core */
+.hero-slides{position:absolute;inset:0}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 2.2s ease;
+}
+.hero-slide.active{opacity:1}
+.hero-slide:nth-child(1){background:linear-gradient(160deg,#3d6080 0%,#6b96b5 25%,#a8c8de 45%,#d4c0d8 70%,#e8c8d4 100%)}
+.hero-slide:nth-child(2){background:linear-gradient(155deg,#2e4a62 0%,#5a8aaa 30%,#90b8d0 55%,#c8c0dc 80%,#dcc0cc 100%)}
+.hero-slide:nth-child(3){background:linear-gradient(165deg,#4f7a9a 0%,#7aacca 35%,#b4d2e4 60%,#dcc8e0 100%)}
+.hero-slide:nth-child(4){background:linear-gradient(150deg,#3d6080 0%,#7098b8 40%,#c0d8e8 65%,#e0c8d8 90%,#f0d8e4 100%)}
+
+.slide-placeholder{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:0.5rem;
+}
+.slide-placeholder .ph-num{
+  font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.08);line-height:1;
+}
+.slide-placeholder .ph-label{
+  font-size:0.7rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);font-weight:300;
+}
+
+/* Graduated overlay — dreamy bottom fade */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Slightly deepened the top overlay opacity to make white text pop flawlessly */
+  background: linear-gradient(180deg,
+    rgba(28, 45, 63, 0.25) 0%,
+    rgba(28, 45, 63, 0.12) 30%,
+    rgba(238, 245, 251, 0.0) 50%,
+    rgba(238, 245, 251, 0.5) 78%,
+    rgba(238, 245, 251, 0.92) 100%
+  );
+}
+.hero-vignette{
+  position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse at 50% 60%,transparent 45%,rgba(46,74,98,0.25) 100%);
+}
+
+.hero-dots{
+  position:absolute;bottom:6rem;left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;gap:0.7rem;
+}
+.hero-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.5);
+  cursor:pointer;transition:all 0.4s;
+}
+.hero-dot.active{background:#fff;transform:scale(1.4);border-color:#fff}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.3rem;
+  padding:0 1.5rem;margin-bottom:8vh;
+}
+.hero-pre {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300; /* Increased slightly from 200 for thickness */
+  font-size: 0.75rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* Protective text contrast shadow */
+  text-shadow: 0 2px 12px rgba(28, 45, 63, 0.5);
+  opacity: 0;
+  animation: hero-up 1s ease 0.3s forwards;
+}
+
+.hero-title {
+  font-size: clamp(4.2rem, 12vw, 9.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 0.90;
+  letter-spacing: 0.01em;
+  /* Multi-layered shadow: tight core shadow for crisp edges + wide glow for separation */
+  text-shadow: 
+    0 2px 10px rgba(28, 45, 63, 0.4), 
+    0 4px 40px rgba(28, 45, 63, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: hero-up 1.3s ease 0.6s forwards;
+}
+
+.hero-title .amp {
+  font-family: 'Great Vibes', cursive;
+  font-size: 0.55em;
+  color: rgba(255, 255, 255, 0.95); /* Bumped up from 0.8 */
+  font-weight: 400;
+  font-style: normal;
+  display: block;
+  margin: 0.15em 0;
+  text-shadow: 0 2px 15px rgba(28, 45, 63, 0.4);
+}
+.hero-divider{
+  display:flex;align-items:center;gap:1.2rem;
+  opacity:0;animation:hero-up 1s ease 1.1s forwards;
+}
+.hero-divider span{display:block;width:55px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.55))}
+.hero-divider span:last-child{background:linear-gradient(90deg,rgba(255,255,255,0.55),transparent)}
+.hero-divider i {
+  font-style: normal;
+  color: #ffffff;
+  font-size: 0.8rem;
+  text-shadow: 0 2px 10px rgba(28, 45, 63, 0.5);
+}
+.hero-date {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300; /* Increased slightly from 200 for thickness */
+  font-size: 0.8rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(28, 45, 63, 0.5);
+  opacity: 0;
+  animation: hero-up 1s ease 1.4s forwards;
+}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  opacity:0;animation:fadein 1s ease 2.8s forwards;
+}
+.hero-scroll span{font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:rgba(143,178,204,0.55);font-weight:200}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(180deg,rgba(143,178,204,0.8),transparent);
+  animation:scrollline 2.2s ease-in-out infinite;
+}
+@keyframes scrollline{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:0.2;transform:scaleY(0.5)}}
+@keyframes hero-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════
+   PHOTOSTRIP — combined landscape + portrait, photo.jpg
+═══════════════════════════════ */
+.photostrip-section{
+  padding:3.5rem 0;overflow:hidden;
+  background:linear-gradient(160deg,var(--db-700) 0%,var(--db-600) 50%,var(--db-700) 100%);
+  position:relative;
+}
+/* Lover sky blush tint at top */
+.photostrip-section::before,.photostrip-section::after{
+  content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none;
+}
+.photostrip-section::before{left:0;background:linear-gradient(90deg,var(--db-700),transparent)}
+.photostrip-section::after{right:0;background:linear-gradient(90deg,transparent,var(--db-700))}
+
+.photostrip-label{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;
+  color:rgba(255,255,255,0.5);margin-bottom:1.4rem;display:block;
+}
+
+.strip-track{
+  display:flex;gap:1.4rem;align-items:center;
+  width:max-content;
+  animation:strip-scroll var(--strip-dur,55s) linear infinite;
+}
+@keyframes strip-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.strip-item{
+  flex-shrink:0;border-radius:8px;overflow:hidden;position:relative;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1);
+  outline:1px solid rgba(255,255,255,0.12);
+}
+.strip-item.land{width:290px;height:192px}
+.strip-item.port{width:162px;height:238px}
+
+.strip-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(0.88) saturate(0.8) hue-rotate(5deg);
+  transition:filter 0.5s;
+}
+.strip-item:hover .strip-img{filter:brightness(1) saturate(1)}
+
+.strip-ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--db-600),var(--db-500));
+}
+.strip-ph-label{font-family:'Jost',sans-serif;font-size:0.55rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(184,208,227,0.35);font-weight:200}
+
+/* ═══════════════════════════════
+   SECTION BASE
+═══════════════════════════════ */
+section{padding:7rem 1.5rem;text-align:center}
+
+.section-label{
+  font-family:'Jost',sans-serif;
+  font-size:0.72rem;letter-spacing:0.6em;text-transform:uppercase;
+  color:var(--db-400);font-weight:300;margin-bottom:0.9rem;display:block;
+}
+.section-title{
+  font-size:clamp(2.4rem,5.5vw,3.8rem);
+  font-weight:300;font-style:italic;color:var(--db-800);line-height:1.1;
+}
+.section-title em{font-style:normal;color:var(--db-500)}
+
+/* ── Section backgrounds — Lover sky tints, dusty blue dominant ── */
+#countdown {
+  /* ── LOVER SUNSET SKY ── */
+  background: linear-gradient(-45deg, #f8cdda, #c1d3fe, #fde4cf, #e2c6ff);
+  background-size: 400% 400%;
+  animation: lover-sky 15s ease infinite;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes lover-sky {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+}
+#countdown::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 15% 0%,rgba(200,184,224,0.2) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(244,184,204,0.12) 0%,transparent 50%);
+  pointer-events:none;
+}
+/* Lover sky sections — soft cloud-sky bg */
+#details{background:linear-gradient(165deg,var(--db-50) 0%,var(--db-100) 45%,#e8d8e8 100%)}
+#timeline{background:linear-gradient(160deg,#e4eef8 0%,var(--db-100) 40%,#ecdae8 100%)}
+#attire{background:linear-gradient(165deg,var(--db-50) 0%,#e0ecf5 50%,#e8d8e8 100%)}
+#entourage{background:linear-gradient(160deg,#dce8f4 0%,var(--db-100) 55%,#eadaea 100%)}
+#sponsors{background:linear-gradient(165deg,var(--db-50) 0%,#e4eef8 50%,#ecdae8 100%)}
+#hashtag{
+  background:linear-gradient(165deg,var(--db-700) 0%,var(--db-600) 40%,#5a7888 70%,var(--db-700) 100%);
+  position:relative;overflow:hidden;
+}
+#hashtag::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(200,184,224,0.15) 0%,transparent 65%);
+  pointer-events:none;
+}
+#reminders{background:linear-gradient(160deg,var(--db-50) 0%,#dce8f4 50%,#ecd8e8 100%)}
+#rsvp{background:linear-gradient(165deg,#e4eef8 0%,var(--db-50) 55%,#ead8e8 100%)}
+
+/* ═══════════════════════════════
+   COUNTDOWN
+═══════════════════════════════ */
+.countdown-pre{
+  font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.75rem;letter-spacing:0.55em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);margin-bottom:0.8rem;
+}
+.countdown-title{
+  font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:300;font-style:italic;
+  color: var(--db-800); /* Changed from #fff */
+  text-shadow: 0 2px 20px rgba(255,255,255,0.5); /
+}
+.countdown-grid{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.cdown-unit{display:flex;flex-direction:column;align-items:center;gap:0.5rem;min-width:90px}
+.cdown-num{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(3.5rem,9vw,6.5rem);
+  color: var(--db-800); /* Changed from #fff */
+  text-shadow: 0 2px 15px rgba(255,255,255,0.6); /* Lighter shadow */
+}
+.cdown-label{
+  font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:rgba(200,220,240,0.55);
+}
+.cdown-sep{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:3.5rem;color:rgba(200,184,224,0.5);
+  align-self:flex-start;padding-top:0.8rem;line-height:1;
+}
+
+/* ═══════════════════════════════
+   VENUE CARDS
+═══════════════════════════════ */
+.venue-grid{
+  max-width:900px;margin:3.5rem auto 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:center;
+}
+@media(max-width:620px){.venue-grid{grid-template-columns:1fr}}
+.venue-card{
+  background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:10px;overflow:hidden;
+  transition:transform 0.4s,box-shadow 0.4s;
+  box-shadow:0 8px 40px rgba(46,74,98,0.1);
+}
+.venue-card:hover{transform:translateY(-7px);box-shadow:0 28px 64px rgba(46,74,98,0.18)}
+.venue-photo{
+  width:100%;height:220px;
+  background:linear-gradient(135deg,var(--db-200),var(--lav-soft));
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.venue-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.venue-photo-placeholder{display:flex;flex-direction:column;align-items:center;gap:0.5rem}
+.ph-icon{font-size:2rem;opacity:0.3}
+.ph-text{font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.38em;text-transform:uppercase;color:rgba(74,96,112,0.45);font-weight:300}
+.venue-body{padding:2.2rem 2rem}
+.venue-type{
+  font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:var(--db-400);margin-bottom:0.6rem;font-weight:300;
+}
+.venue-name{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;font-style:italic;
+  color:var(--db-800);margin-bottom:0.5rem;line-height:1.3;
+}
+.venue-sub{font-family:'Jost',sans-serif;font-size:0.82rem;color:var(--text-mid);font-weight:300;margin-bottom:0.8rem}
+.venue-time{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--db-500);margin-bottom:1.4rem}
+.venue-btn{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--db-600);text-decoration:none;
+  border-bottom:1px solid rgba(77,122,160,0.35);
+  padding-bottom:2px;transition:all 0.3s;font-weight:300;
+}
+.venue-btn:hover{color:var(--blush);border-color:var(--blush)}
+
+/* ═══════════════════════════════
+   TIMELINE
+═══════════════════════════════ */
+.timeline-wrap{max-width:580px;margin:3.5rem auto 0;position:relative}
+.timeline-wrap::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;
+  width:1px;
+  background:linear-gradient(180deg,transparent,var(--db-200) 20%,var(--lav-soft) 80%,transparent);
+  transform:translateX(-50%);
+}
+.tl-item{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:flex-start;gap:1.8rem;margin-bottom:2.8rem;
+}
+.tl-time{
+  font-family:'Jost',sans-serif;font-weight:300;
+  font-size:0.9rem;color:var(--db-500);
+  padding-top:0.15rem;text-align:right;letter-spacing:0.04em;
+}
+.tl-dot{
+  width:12px;height:12px;border-radius:50%;
+  background:linear-gradient(135deg,var(--db-300),var(--lav-soft));
+  border:2px solid #fff;
+  box-shadow:0 0 0 2px var(--db-200),0 0 14px rgba(143,178,204,0.35);
+  flex-shrink:0;margin-top:0.2rem;position:relative;z-index:1;
+}
+.tl-content{text-align:left}
+.tl-event{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.1rem;color:var(--text-dark);letter-spacing:0.01em}
+@media(max-width:500px){
+  .timeline-wrap::before{left:16px}
+  .tl-item{grid-template-columns:auto 1fr;gap:0.8rem}
+  .tl-time{display:none}
+}
+
+/* ═══════════════════════════════
+   ATTIRE
+═══════════════════════════════ */
+.swatch-row{display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:0.6rem}
+.swatch-circle{
+  width:60px;height:60px;border-radius:50%;
+  border:1px solid rgba(143,178,204,0.35);
+  box-shadow:0 4px 16px rgba(46,74,98,0.12);
+}
+.swatch-name{font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--text-light);font-weight:300}
+.attire-grid{
+  max-width:860px;margin:3rem auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+@media(max-width:620px){.attire-grid{grid-template-columns:1fr;max-width:360px}}
+.attire-card{
+  background:rgba(255,255,255,0.68);backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:10px;padding:2.4rem 1.6rem;text-align:center;
+  transition:transform 0.35s,box-shadow 0.35s;
+  box-shadow:0 4px 20px rgba(46,74,98,0.07);
+}
+.attire-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(46,74,98,0.14)}
+.attire-swatch{
+  width:56px;height:56px;border-radius:50%;
+  margin:0 auto 1.1rem;border:1px solid rgba(143,178,204,0.25);
+  box-shadow:0 4px 14px rgba(46,74,98,0.1);
+}
+.attire-who{
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--db-400);margin-bottom:0.6rem;font-weight:300;
+}
+.attire-desc{font-family:'Jost',sans-serif;font-size:1rem;font-weight:300;color:var(--text-dark);line-height:1.65}
+.attire-note{
+  max-width:520px;margin:2.5rem auto 0;
+  background:rgba(255,255,255,0.55);
+  border:1px solid rgba(143,178,204,0.28);
+  border-radius:10px;padding:1.5rem 2rem;
+}
+.attire-note p{font-family:'Jost',sans-serif;font-size:0.85rem;color:var(--text-mid);line-height:1.9;font-weight:300}
+.attire-note strong{color:var(--db-600)}
+
+/* ═══════════════════════════════
+   ENTOURAGE
+═══════════════════════════════ */
+.ent-block{max-width:720px;margin:3.2rem auto 0;text-align:center}
+.ent-role{
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:var(--db-400);font-weight:300;
+  display:block;margin-bottom:1rem;
+  padding-bottom:0.7rem;border-bottom:1px solid rgba(143,178,204,0.2);
+}
+.ent-name{
+  font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;
+  color:var(--text-dark);line-height:1.8;
+}
+.ent-couple-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:0 auto;text-align:center;
+}
+@media(max-width:500px){.ent-couple-row{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════
+   SPONSORS
+═══════════════════════════════ */
+.sponsors-grid{
+  max-width:840px;margin:2.5rem auto 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.5rem;text-align:center;
+}
+@media(max-width:580px){.sponsors-grid{grid-template-columns:1fr}}
+.sponsor-pair{padding:1.1rem 0;border-bottom:1px solid rgba(143,178,204,0.15)}
+.sponsor-pair:nth-last-child(-n+2){border-bottom:none}
+.sponsor-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--text-dark);line-height:1.55}
+.sponsor-and{font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--text-light);display:block;margin:0.1rem 0;font-weight:200}
+.special-grid{
+  max-width:820px;margin:2.5rem auto 0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1.1rem;
+}
+.special-card{
+  background:rgba(255,255,255,0.65);backdrop-filter:blur(8px);
+  border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;text-align:center;
+  transition:transform 0.3s;
+}
+.special-card:hover{transform:translateY(-4px)}
+.special-role{
+  font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.42em;text-transform:uppercase;
+  color:var(--db-400);margin-bottom:0.5rem;display:block;font-weight:300;
+}
+.special-names{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-dark);line-height:1.55}
+
+/* ═══════════════════════════════
+   HASHTAG (dark sky section)
+═══════════════════════════════ */
+.hashtag-label{
+  font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.72rem;letter-spacing:0.6em;text-transform:uppercase;
+  color:rgba(200,220,240,0.55);margin-bottom:1.2rem;display:block;
+}
+.hashtag-divider{
+  display:flex;align-items:center;gap:1.2rem;justify-content:center;margin:1.5rem 0;
+}
+.hashtag-divider span{display:block;width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.35))}
+.hashtag-divider span:last-child{background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
+.hashtag-divider i{font-style:normal;color:rgba(200,184,224,0.6);font-size:0.85rem}
+.hashtag-main{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
+  font-size:clamp(1.6rem,4.5vw,3.2rem);
+  color:#fff;letter-spacing:0.01em;line-height:1.2;margin-bottom:1rem;
+  text-shadow:0 2px 30px rgba(46,74,98,0.5);
+}
+.hashtag-sub{
+  font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.82rem;color:rgba(200,220,240,0.55);line-height:1.9;
+  max-width:440px;margin:0 auto;
+}
+
+/* ═══════════════════════════════
+   REMINDERS
+═══════════════════════════════ */
+.reminders-grid{
+  max-width:840px;margin:3.5rem auto 0;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;
+}
+.reminder-card{
+  background:rgba(255,255,255,0.68);backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:10px;padding:2.4rem 1.6rem;text-align:center;
+  transition:transform 0.35s,box-shadow 0.35s;
+  box-shadow:0 4px 20px rgba(46,74,98,0.07);
+}
+.reminder-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(46,74,98,0.12)}
+.reminder-icon{font-size:1.6rem;margin-bottom:0.9rem}
+.reminder-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--db-800);margin-bottom:0.6rem}
+.reminder-text{font-family:'Jost',sans-serif;font-size:0.82rem;color:var(--text-mid);line-height:1.85;font-weight:300}
+
+/* ═══════════════════════════════
+   RSVP
+═══════════════════════════════ */
+.rsvp-sub{
+  font-family:'Jost',sans-serif;font-size:0.88rem;color:var(--text-mid);line-height:1.8;font-weight:300;
+  max-width:500px;margin:1rem auto 2.5rem;
+}
+.rsvp-deadline{
+  display:inline-block;font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.65rem;letter-spacing:0.38em;text-transform:uppercase;
+  color:var(--text-light);border:1px solid rgba(143,178,204,0.3);
+  padding:0.55rem 1.5rem;border-radius:100px;margin-bottom:2.5rem;
+}
+.form-container{
+  max-width:700px;margin:0 auto;
+  background:rgba(255,255,255,0.65);backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);border-radius:10px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(46,74,98,0.1);
+}
+.form-placeholder{padding:4rem 2.5rem;text-align:center}
+.form-placeholder p{font-family:'Jost',sans-serif;color:var(--text-mid);font-size:0.85rem;line-height:1.9;font-weight:300;margin-bottom:2rem}
+.btn-primary{
+  display:inline-block;background:var(--db-600);color:#fff;text-decoration:none;
+  font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.38em;text-transform:uppercase;
+  padding:1.1rem 2.6rem;transition:all 0.3s;font-weight:300;
+  border:none;cursor:pointer;border-radius:3px;
+}
+.btn-primary:hover{background:var(--db-500);box-shadow:0 10px 30px rgba(46,74,98,0.25)}
+.form-note{margin-top:1.3rem;font-family:'Jost',sans-serif;font-size:0.62rem;color:var(--text-light);font-weight:200;letter-spacing:0.14em}
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer{
+  background:linear-gradient(160deg,var(--db-900) 0%,#111d29 100%);
+  color:rgba(255,255,255,0.3);text-align:center;padding:4rem 1.5rem;
+  position:relative;overflow:hidden;
+}
+footer::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(200,184,224,0.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.footer-logo{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;color:rgba(184,208,227,0.5);margin-bottom:0.8rem;
+}
+.footer-date{
+  font-family:'Jost',sans-serif;font-weight:200;
+  font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);margin-bottom:0.6rem;
+}
+.footer-tag{
+  font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:200;
+  color:rgba(200,184,224,0.28);letter-spacing:0.1em;
+}
+.footer-credit{margin-top:2.5rem;font-family:'Jost',sans-serif;font-size:0.55rem;letter-spacing:0.22em;color:rgba(255,255,255,0.08)}
+.footer-divider{
+  display:flex;align-items:center;gap:1.2rem;justify-content:center;margin:1.5rem 0;
+}
+.footer-divider span{display:block;height:1px;width:55px;background:linear-gradient(90deg,transparent,rgba(143,178,204,0.2))}
+.footer-divider span:last-child{background:linear-gradient(90deg,rgba(143,178,204,0.2),transparent)}
+.footer-divider i{font-style:normal;color:rgba(143,178,204,0.25);font-size:0.7rem}
+
+/* ═══════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.12s}
+.reveal-delay-2{transition-delay:0.22s}
+.reveal-delay-3{transition-delay:0.32s}
+
+/* Section ornament divider */
+.section-divider{
+  display:flex;align-items:center;gap:1.2rem;justify-content:center;padding:0.5rem 0;margin-bottom:0.8rem;
+}
+.section-divider span{display:block;height:1px;width:55px;background:linear-gradient(90deg,transparent,rgba(143,178,204,0.5))}
+.section-divider span:last-child{background:linear-gradient(90deg,rgba(143,178,204,0.5),transparent)}
+.section-divider i{font-style:normal;color:var(--db-300);font-size:0.75rem}
+
+/* ── Floating petal canvas (Lover sky palette) ── */
+#petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.4}
+
+/* ── TAYLOR SWIFT EFFECT: STARLIGHT GLOW ── */
+.tl-dot {
+  box-shadow: 0 0 0 2px var(--db-200), 0 0 20px rgba(244,184,204,0.6) !important;
+  animation: pulse-glow 3s infinite alternate;
+}
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 2px var(--db-200), 0 0 8px rgba(244,184,204,0.3); }
+  100% { box-shadow: 0 0 0 2px var(--db-200), 0 0 25px rgba(184,208,227,0.9); }
+}
+
+/* ── TAYLOR SWIFT EFFECT: VINTAGE LIGHT LEAKS ── */
+.light-leak {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 9996; overflow: hidden;
+  mix-blend-mode: screen; opacity: 0.6;
+}
+.light-leak::before, .light-leak::after {
+  content: ''; position: absolute; border-radius: 50%;
+  filter: blur(130px); animation: drift 25s infinite ease-in-out alternate;
+}
+.light-leak::before {
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(244,184,204,0.25) 0%, transparent 70%);
+  top: -10%; left: -10%;
+}
+.light-leak::after {
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(184,208,227,0.25) 0%, transparent 70%);
+  bottom: -10%; right: -10%; 
+  animation-duration: 30s; 
+  animation-direction: alternate-reverse;
+}
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(15vw, 15vh) scale(1.15); }
+}
+/* ── TAYLOR SWIFT EFFECT: STARLIGHT GLOW ── */
+.tl-dot {
+  box-shadow: 0 0 0 2px var(--db-200), 0 0 20px rgba(244,184,204,0.6) !important;
+  animation: pulse-glow 3s infinite alternate;
+}
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 2px var(--db-200), 0 0 8px rgba(244,184,204,0.3); }
+  100% { box-shadow: 0 0 0 2px var(--db-200), 0 0 25px rgba(184,208,227,0.9); }
+}
+
+/* ── TAYLOR SWIFT EFFECT: 1989 FILM GRAIN ── */
+.film-grain {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none; /* Ensures you can still click things underneath */
+  z-index: 9999;
+  opacity: 0.05; /* Keep it very subtle */
+  background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+/* ── TAYLOR SWIFT EFFECT: 1989 FILM GRAIN ── */
+.film-grain {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none; /* Ensures you can still click things underneath */
+  z-index: 9999;
+  opacity: 0.05; /* Keep it very subtle */
+  background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+/* ── TAYLOR SWIFT EFFECT: ENCHANTED SPARKS ── */
+.enchanted-sparks {
+  position: fixed; bottom: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 9995; overflow: hidden;
+}
+.spark {
+  position: absolute; bottom: -20px;
+  width: 4px; height: 4px; background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px var(--blush), 0 0 20px 2px var(--db-300);
+  opacity: 0;
+  animation: float-up linear infinite;
+}
+.spark:nth-child(1) { left: 15%; animation-duration: 12s; animation-delay: 0s; }
+.spark:nth-child(2) { left: 45%; animation-duration: 18s; animation-delay: 4s; }
+.spark:nth-child(3) { left: 75%; animation-duration: 14s; animation-delay: 2s; }
+.spark:nth-child(4) { left: 90%; animation-duration: 20s; animation-delay: 6s; }
+.spark:nth-child(5) { left: 30%; animation-duration: 16s; animation-delay: 8s; }
+
+@keyframes float-up {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+}
+
+//* ── TAYLOR SWIFT EFFECT: LOVER CLOUDS ── */
+/* ── TAYLOR SWIFT EFFECT: LOVER CLOUDS (COUNTDOWN ONLY) ── */
+.lover-clouds {
+  position: absolute; /* Changed from fixed */
+  top: 0; 
+  left: 0; 
+  width: 100%; /* Changed from 100vw */
+  height: 100%; /* Changed from 100vh */
+  pointer-events: none; 
+  z-index: 1; /* Keeps it behind the countdown text */
+  overflow: hidden;
+}
+
+
+/* ── TAYLOR SWIFT EFFECT: DAYLIGHT SUNBEAMS (FIXED) ── */
+.daylight-sunbeam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Stronger Golden Yellow and Pink, no blend mode so it always shows */
+  background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.35) 0%, rgba(255, 105, 180, 0.2) 30%, transparent 60%);
+  pointer-events: none; /* Lets you click through it */
+  z-index: 9999; /* Forces it to the very top of everything */
+  animation: sunbeam-shimmer 4s infinite alternate ease-in-out;
+}
+
+@keyframes sunbeam-shimmer {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.cdown-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.5rem;
+  
+  /* Make the text dark blue so it's visible against the bright sunset */
+  color: var(--db-800); 
+  
+  /* Ensure it stays on top of the clouds */
+  position: relative;
+  z-index: 2; 
+}
+
+.cloud {
+  position: absolute;
+  background-color: #ffffff; /* Solid white base */
+  border-radius: 50%; /* Forces it into a perfect oval */
+  filter: blur(40px); /* Massively blurs the edges to look like soft clouds */
+  opacity: 0.5;
+  animation: drift-cloud linear infinite;
+}
+
+/* Size and speed of each individual cloud */
+.cloud:nth-child(1) { width: 400px; height: 150px; top: 10%; left: -400px; animation-duration: 40s; }
+.cloud:nth-child(2) { width: 300px; height: 100px; top: 40%; left: -300px; animation-duration: 55s; animation-delay: 15s; }
+.cloud:nth-child(3) { width: 500px; height: 200px; top: 70%; left: -500px; animation-duration: 45s; animation-delay: 5s; }
+
+/* The animation that moves them across the screen */
+@keyframes drift-cloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 600px)); }
+
+  
+}
+
+/* ── TAYLOR SWIFT EFFECT: LOVER CONFETTI ── */
+.lover-confetti-container {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 9992; overflow: hidden;
+}
+.confetti {
+  position: absolute; top: -10px;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  opacity: 0.7;
+  animation: fall-confetti linear infinite;
+}
+/* Pink, Blue, and Lavender Confetti */
+.confetti:nth-child(1) { left: 10%; background: #f4b8cc; animation-duration: 12s; }
+.confetti:nth-child(2) { left: 30%; background: #b8d0e3; animation-duration: 15s; animation-delay: 2s; }
+.confetti:nth-child(3) { left: 50%; background: #e2c6ff; animation-duration: 11s; animation-delay: 4s; }
+.confetti:nth-child(4) { left: 70%; background: #fde4cf; animation-duration: 14s; animation-delay: 1s; }
+.confetti:nth-child(5) { left: 90%; background: #f4b8cc; animation-duration: 13s; animation-delay: 5s; }
+
+@keyframes fall-confetti {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* ── MINI FEATURE: MAGICAL HOVER LINKS ── */
+p a, .info-block a {
+  text-decoration: none;
+  color: var(--db-700);
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+p a::after, .info-block a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--blush, #f4b8cc);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+}
+
+p a:hover, .info-block a:hover {
+  color: var(--blush, #f4b8cc);
+}
+
+p a:hover::after, .info-block a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  box-shadow: 0 0 8px rgba(244,184,204,0.8);
+}
+
+
+
+
+/* ── LOVER EFFECT: CHRISTMAS LIGHTS ── */
+.lover-lights {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-around;
+  padding: 0 10px; z-index: 9999; pointer-events: none;
+}
+.light {
+  width: 8px; height: 14px;
+  border-radius: 50% 50% 20% 20%;
+  position: relative;
+  top: -2px;
+  animation: blink-light 1.5s infinite alternate;
+}
+/* The tiny green "wire" base of the bulb */
+.light::before {
+  content: ''; position: absolute;
+  top: -4px; left: 2px; width: 4px; height: 4px;
+  background: #556b2f; border-radius: 2px;
+}
+/* Alternating Lover Colors */
+.light:nth-child(3n+1) { background: #f4b8cc; box-shadow: 0 5px 15px 5px rgba(244,184,204,0.8); animation-delay: 0s; }
+.light:nth-child(3n+2) { background: #b8d0e3; box-shadow: 0 5px 15px 5px rgba(184,208,227,0.8); animation-delay: 0.5s; }
+.light:nth-child(3n) { background: #fde4cf; box-shadow: 0 5px 15px 5px rgba(253,228,207,0.8); animation-delay: 1s; }
+
+@keyframes blink-light {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ── LOVER EFFECTS: AUDIO PLAYER WIDGET ── */
+.audio-widget {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px 8px 8px;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(28, 45, 63, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  user-select: none;
+}
+
+.audio-widget:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Vinyl Record styling */
+.vinyl-disc {
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle, #333 40%, #111 41%, #222 60%, #000 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.1s linear;
+}
+
+/* Pink Album Center Label */
+.vinyl-center {
+  width: 16px;
+  height: 16px;
+  background: #f4b8cc; /* Lover Pink */
+  border-radius: 50%;
+  border: 2px solid #111;
+}
+
+/* Spinning Animation Class triggered via JavaScript */
+.vinyl-spin {
+  animation: spinRecord 3.5s linear infinite;
+}
+
+@keyframes spinRecord {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Label text positioning */
+.audio-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.audio-status {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f4b8cc; /* Lover Pink */
+  font-weight: 500;
+}
+
+.audio-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  color: #1c2d3f; /* Deep Theme Blue */
+  font-weight: 400;
+}
+
+</style>
+</head>
+<body>
+
+  <audio id="loverAudio" src="your-song.mp3" loop></audio>
+
+<div class="audio-widget" onclick="toggleAudio()">
+  <div class="vinyl-disc" id="vinylDisc">
+    <div class="vinyl-center"></div>
+  </div>
+  <div class="audio-text-container">
+    <span class="audio-status" id="audioStatus">Play Our Song</span>
+    <span class="audio-title">Lover — Taylor Swift</span>
+  </div>
+</div>
+  <div class="daylight-sunbeam"></div>
+  <div class="light-leak"></div>
+  <div class="film-grain"></div>
+  <div class="enchanted-sparks">
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+</div>
+
+<div class="lover-confetti-container">
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+</div>
+
+
+
+<canvas id="petal-canvas"></canvas>
+<audio id="bgm" loop preload="none"></audio>
+
+<!-- ══ CINEMATIC INTRO ══ -->
+<div id="intro">
+  <div class="intro-bg"></div>
+  <!-- Soft cloud puffs in Lover palette -->
+  <div class="intro-cloud" style="--cw:600px;--ch:240px;--ct:2%;--cl:-8%;--cc:rgba(255,255,255,0.5);--cb:55px;--cd:38s;--cde:0s"></div>
+  <div class="intro-cloud" style="--cw:420px;--ch:180px;--ct:18%;--cl:55%;--cc:rgba(220,200,235,0.45);--cb:45px;--cd:48s;--cde:-14s"></div>
+  <div class="intro-cloud" style="--cw:350px;--ch:160px;--ct:40%;--cl:8%;--cc:rgba(200,220,240,0.4);--cb:40px;--cd:42s;--cde:-9s"></div>
+  <div class="intro-cloud" style="--cw:500px;--ch:220px;--ct:62%;--cl:28%;--cc:rgba(244,200,220,0.35);--cb:50px;--cd:55s;--cde:-22s"></div>
+  <div class="intro-cloud" style="--cw:280px;--ch:130px;--ct:75%;--cl:72%;--cc:rgba(255,255,255,0.4);--cb:35px;--cd:35s;--cde:-6s"></div>
+  <div class="intro-particles" id="particles"></div>
+  <div class="intro-content">
+    <p class="intro-eyebrow">July 18, 2026 · Morong, Rizal</p>
+    <div class="intro-names">Joseph Loyd<span class="intro-amp">&amp;</span>Denice</div>
+    <div class="intro-rule"><span></span><em>✦</em><span></span></div>
+    <p class="intro-tag">#DENICEtinoparakayJOSEPHLOYD</p>
+  </div>
+  <button class="intro-skip" onclick="skipIntro()">Skip ›</button>
+</div>
+
+<!-- ══ MUSIC ══ -->
+<button id="music-btn" onclick="toggleMusic()" title="Toggle music">♪</button>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">J & D</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#details" onclick="closeMenu()">Details</a></li>
+    <li><a href="#timeline" onclick="closeMenu()">Program</a></li>
+    <li><a href="#attire" onclick="closeMenu()">Attire</a></li>
+    <li><a href="#entourage" onclick="closeMenu()">Entourage</a></li>
+    <li><a href="#hashtag" onclick="closeMenu()">Hashtag</a></li>
+    <li><a href="#reminders" onclick="closeMenu()">Reminders</a></li>
+    <li><a href="#rsvp" onclick="closeMenu()">RSVP</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-slides" id="hero-slides">
+    <div class="hero-slide active" id="slide-0">
+      <img src="1.jpg"Hero Photo 1" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="hero-slide" id="slide-1">
+      <img src="88.jpg" alt="Hero Photo 2" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="hero-slide" id="slide-2">
+      <img src="3.jpg" alt="Hero Photo 3" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="hero-slide" id="slide-3">
+      <img src="4 (2).jpg" alt="Hero Photo 4" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-pre">Together with their families</p>
+    <h1 class="hero-title">Joseph Loyd<span class="amp">&amp;</span>Denice</h1>
+    <div class="hero-divider"><span></span><i>✦</i><span></span></div>
+    <p class="hero-date">July 18, 2026 · Morong, Rizal</p>
+  </div>
+  <div class="hero-dots" id="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+    <div class="hero-dot" onclick="goSlide(3)"></div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<div class="photostrip-section">
+  <span class="photostrip-label">Our Moments</span>
+  <div style="overflow:hidden">
+    <div class="strip-track" style="--strip-dur:60s">
+      <div class="strip-item land"><img src="5.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="6.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="7.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="8.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="9.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="10.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="11.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="12.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="13.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="14.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="15.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="16.jpg" class="strip-img" alt="Photo"/></div>
+      
+      <div class="strip-item land"><img src="17.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="18.jpeg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="19.jpeg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="20.jpeg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="5.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="6.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="7.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="8.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="9.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="10.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="11.jpg" class="strip-img" alt="Photo"/></div>
+      <div class="strip-item land"><img src="12.jpg" class="strip-img" alt="Photo"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COUNTDOWN ══ -->
+<div id="countdown">
+  
+  <div class="lover-clouds">
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+</div>
+  <p class="countdown-pre">Counting down to</p>
+  <h2 class="countdown-title">Our Wedding Day</h2>
+  <div class="countdown-grid">
+    <div class="cdown-unit"><div class="cdown-num" id="cd-days">--</div><div class="cdown-label">Days</div></div>
+    <div class="cdown-sep">·</div>
+    <div class="cdown-unit"><div class="cdown-num" id="cd-hours">--</div><div class="cdown-label">Hours</div></div>
+    <div class="cdown-sep">·</div>
+    <div class="cdown-unit"><div class="cdown-num" id="cd-mins">--</div><div class="cdown-label">Minutes</div></div>
+    <div class="cdown-sep">·</div>
+    <div class="cdown-unit"><div class="cdown-num" id="cd-secs">--</div><div class="cdown-label">Seconds</div></div>
+  </div>
+</div>
+
+<!-- ══ DETAILS ══ -->
+ <section id="details">
+  <div class="reveal">
+    <span class="section-label">Venue & Details</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Where Love <em>Begins</em></h2>
+  </div>
+  <div class="venue-grid">
+    <div class="venue-card reveal reveal-delay-1">
+      <div class="venue-photo">
+        <img src="churchh.jpg" alt="Holy Matrimony Venue" />
+      </div>
+      <div class="venue-body">
+        <div class="venue-type">Holy Matrimony</div>
+        <div class="venue-name">Diocesan Shrine and Parish of Saint Jerome</div>
+        <div class="venue-sub">Morong, Rizal</div>
+        <div class="venue-time">1:00 PM</div>
+        <a href="https://maps.app.goo.gl/NGnrDVKsXBdh7rLy8" target="_blank" class="venue-btn">📍 View on Map</a>
+      </div>
+    </div>
+    <div class="venue-card reveal reveal-delay-2">
+      <div class="venue-photo">
+        <img src="photo.jpg" alt="Wedding Reception Venue" />
+      </div>
+      <div class="venue-body">
+        <div class="venue-type">Wedding Reception</div>
+        <div class="venue-name">Monwlet Terrace</div>
+        <div class="venue-sub">Morong, Rizal</div>
+        <div class="venue-time">5:00 PM</div>
+        <a href="https://maps.app.goo.gl/cUkbr9EeddLPqJqB6" target="_blank" class="venue-btn">📍 View on Map</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section id="timeline">
+  <div class="reveal">
+    <span class="section-label">The Program</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">A Day to <em>Remember</em></h2>
+  </div>
+  <div class="timeline-wrap">
+    <div class="tl-item reveal"><div class="tl-time">1:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Guest Arrival</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">1:30 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Wedding Ceremony</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">3:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Photo Session</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">4:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Cocktail Hour</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">5:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Reception Program</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">6:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Dinner</div></div></div>
+    <div class="tl-item reveal"><div class="tl-time">9:00 PM</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">After Party 🎉</div></div></div>
+  </div>
+</section>
+
+<!-- ══ ATTIRE ══ -->
+<section id="attire">
+  <div class="reveal">
+    <span class="section-label">Dress Code</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Come Dressed in <em>Elegance</em></h2>
+  </div>
+  <div class="swatch-row reveal">
+    <div class="swatch"><div class="swatch-circle" style="background:#7b9ebf"></div><div class="swatch-name">Dusty Blue</div></div>
+    <div class="swatch"><div class="swatch-circle" style="background:#6b8cba"></div><div class="swatch-name">Slate Blue</div></div>
+    <div class="swatch"><div class="swatch-circle" style="background:#a8c4d8"></div><div class="swatch-name">Light Blue</div></div>
+  </div>
+  <div class="attire-grid">
+    <div class="attire-card reveal reveal-delay-1">
+      <div class="attire-swatch" style="background:linear-gradient(135deg,#8fb2cc,#b8d0e3)"></div>
+      <div class="attire-who">Guests</div>
+      <div class="attire-desc">Semi-Formal Attire<br>in Blues & Neutrals</div>
+    </div>
+    <div class="attire-card reveal reveal-delay-2">
+      <div class="attire-swatch" style="background:linear-gradient(135deg,#b8b8be,#d4d4d8)"></div>
+      <div class="attire-who">Ninangs</div>
+      <div class="attire-desc">Silver Gray<br>Long Gown</div>
+    </div>
+    <div class="attire-card reveal reveal-delay-3">
+      <div class="attire-swatch" style="background:linear-gradient(135deg,#1c1c22,#2e2e38)"></div>
+      <div class="attire-who">Ninongs</div>
+      <div class="attire-desc">Black Suit & Slacks<br>with Black Necktie</div>
+    </div>
+  </div>
+  <div class="attire-note reveal">
+    <p>⚠️ <strong>Strictly no White or Navy Blue.</strong><br>These colors are reserved for the couple and their entourage.</p>
+  </div>
+</section>
+
+<section id="attire" style="padding: 6rem 1.5rem; background: var(--db-50); position: relative;">
+  <div class="reveal">
+    <span class="section-label">Dress Code</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Attire <em>Guide</em></h2>
+  </div>
+  
+  <div class="venue-grid" style="max-width: 900px; align-items: stretch;">
+    
+    <div class="venue-card reveal reveal-delay-1" style="background: transparent; box-shadow: 0 10px 30px rgba(28,45,63,0.08); display: flex; flex-direction: column; height: 100%;">
+      <div style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px 12px 0 0; background: #ffffff;">
+        <img src="principal.png" alt="Principal Sponsors Attire Guide" style="width: 100%; height: 100%; display: block; object-fit: contain; padding: 1.5rem;" />
+      </div>
+      <div class="venue-body" style="text-align: center; background: #fff; border-radius: 0 0 12px 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="venue-name" style="font-size: 1.4rem;">Principal Sponsors</div>
+        <div class="venue-sub" style="margin-top: 0.5rem;">Formal Attire</div>
+      </div>
+    </div>
+
+    <div class="venue-card reveal reveal-delay-2" style="background: transparent; box-shadow: 0 10px 30px rgba(28,45,63,0.08); display: flex; flex-direction: column; height: 100%;">
+      <div style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px 12px 0 0; background: #ffffff;">
+        <img src="guest.png" alt="Guest Attire Guide" style="width: 100%; height: 100%; display: block; object-fit: contain; padding: 1.5rem;" />
+      </div>
+      <div class="venue-body" style="text-align: center; background: #fff; border-radius: 0 0 12px 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="venue-name" style="font-size: 1.4rem;">Guests</div>
+        <div class="venue-sub" style="margin-top: 0.5rem;">Formal Attire</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ ENTOURAGE ══ -->
+<section id="entourage">
+  <div class="reveal">
+    <span class="section-label">The Entourage</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Our Beloved <em>Circle</em></h2>
+  </div>
+  <div class="ent-block reveal">
+    <span class="ent-role">Parents of the Groom</span>
+    <div class="ent-name">Mr. Frederick Villere</div>
+    <div class="ent-name">Mrs. Janice Villere</div>
+  </div>
+  <div class="ent-block reveal">
+    <span class="ent-role">Parents of the Bride</span>
+    <div class="ent-name">Mr. Joseph San Juan</div>
+    <div class="ent-name">Mrs. Lorelie San Juan</div>
+  </div>
+  <div class="ent-block reveal">
+    <span class="ent-role">Maid of Honor &amp; Best Man</span>
+    <div class="ent-couple-row" style="max-width:520px;margin:0 auto">
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--db-400);margin-bottom:0.4rem;font-weight:300">Maid of Honor</div>
+        <div class="ent-name">Leahrose Latumbo</div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--db-400);margin-bottom:0.4rem;font-weight:300">Best Man</div>
+        <div class="ent-name">Reuel Santiago</div>
+      </div>
+    </div>
+  </div>
+  <div class="ent-block reveal">
+    <div class="ent-couple-row" style="max-width:620px;margin:0 auto">
+      <div>
+        <span class="ent-role" style="border-bottom:none;padding-bottom:0;margin-bottom:0.8rem">Bridesmaids</span>
+        <div class="ent-name">Jewel San Jose</div>
+        <div class="ent-name">Mackenzie Francisco</div>
+        <div class="ent-name">Eloiza Brin</div>
+        <div class="ent-name">Mica Ella Beran</div>
+      </div>
+      <div>
+        <span class="ent-role" style="border-bottom:none;padding-bottom:0;margin-bottom:0.8rem">Groomsmen</span>
+        <div class="ent-name">Stefhano Mirabueno</div>
+        <div class="ent-name">Russell Ramos</div>
+        <div class="ent-name">Lei Martin</div>
+        <div class="ent-name">John Kevin Raymundo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SPONSORS ══ -->
+<section id="sponsors">
+  <div class="reveal">
+    <span class="section-label">Principal Sponsors</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Our <em>Ninongs</em> &amp; <em>Ninangs</em></h2>
+  </div>
+  <div class="sponsors-grid reveal">
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Lorena Cruz</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Jose Fajutar</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Cecilyn Tantiongco</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Mark Dean Felix</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Ms. Melanie San Juan</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Erwin Aquino</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Garliee Ann Magat</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Arvin Mata</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Ms. Jinky Tiratira</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Wendell Santiago</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Jovelle Lumactud</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Cesar Sarmiento</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Emiline Garrovillas</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Garry Ramos</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Catherine Valiente</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Arnold De Jesus</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Lenie Pascual</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Jorge Garrovillas</div></div>
+    <div class="sponsor-pair"><div class="sponsor-name">Mrs. Eva De Rosas</div><span class="sponsor-and">and</span><div class="sponsor-name">Mr. Jerome Fernando</div></div>
+  </div>
+  <div class="reveal" style="margin-top:4rem">
+    <span class="section-label">Special Roles</span>
+  </div>
+  <div class="special-grid reveal">
+    <div class="special-card"><span class="special-role">Candle</span><div class="special-names">Rondelle Gabas<br>April Ann Batalla</div></div>
+    <div class="special-card"><span class="special-role">Veil</span><div class="special-names">Mark Christian Villere<br>Abegail Competente</div></div>
+    <div class="special-card"><span class="special-role">Cord</span><div class="special-names">Justin Raymundo<br>Danicah San Miguel</div></div>
+    <div class="special-card"><span class="special-role">Ring Bearer</span><div class="special-names">King Ferrer</div></div>
+    <div class="special-card"><span class="special-role">Flower Girls</span><div class="special-names">Darish Mae Amonelo<br>Martina Villere</div></div>
+    <div class="special-card"><span class="special-role">Banner Bearer</span><div class="special-names">John Jaderikk Ebuenga</div></div>
+  </div>
+</section>
+
+<!-- ══ HASHTAG ══ -->
+<section id="hashtag">
+  <div class="reveal">
+    <span class="hashtag-label">Share the Love</span>
+    <div class="hashtag-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="hashtag-main">#DENICEtinoparakayJOSEPHLOYD</h2>
+    <p class="hashtag-sub">Capture every beautiful moment and share it with us.<br>Tag your photos so we can see the love through your eyes.</p>
+  </div>
+</section>
+
+<!-- ══ REMINDERS ══ -->
+<section id="reminders">
+  <div class="reveal">
+    <span class="section-label">Gentle Reminders</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">A Few <em>Notes</em> for Our Guests</h2>
+  </div>
+  <div class="reminders-grid">
+    <div class="reminder-card reveal"><div class="reminder-icon">📵</div><div class="reminder-title">No Phones During Ceremony</div><div class="reminder-text">We kindly ask that all phones be put away during the ceremony. Let's be fully present in this sacred moment together.</div></div>
+    <div class="reminder-card reveal reveal-delay-1"><div class="reminder-icon">👶</div><div class="reminder-title">Adults Only</div><div class="reminder-text">We love your little ones, but this celebration is an adults-only event. We appreciate your understanding.</div></div>
+    <div class="reminder-card reveal reveal-delay-2"><div class="reminder-icon">💺</div><div class="reminder-title">Seat Plan in Effect</div><div class="reminder-text">There is a seating arrangement for all guests. No sudden plus-ones, please. Every seat has been thoughtfully assigned.</div></div>
+    <div class="reminder-card reveal reveal-delay-3"><div class="reminder-icon">📅</div><div class="reminder-title">RSVP Deadline</div><div class="reminder-text">Kindly confirm your attendance by June 25, 2026 so we can prepare accordingly for our special day.</div></div>
+    <div class="reminder-card reveal"><div class="reminder-icon">👗</div><div class="reminder-title">Dress Code</div><div class="reminder-text">Semi-formal attire in dusty blue tones. Strictly no white or navy blue. Principal sponsors please follow your designated attire.</div></div>
+    <div class="reminder-card reveal reveal-delay-1"><div class="reminder-icon">✉️</div><div class="reminder-title">Contact Us</div><div class="reminder-text">For inquiries, reach us at josephloydanddenice@gmail.com — we are happy to help!</div></div>
+  </div>
+</section>
+
+<!-- ══ RSVP ══ -->
+<section id="rsvp">
+  <div class="reveal">
+    <span class="section-label">Kindly Reply</span>
+    <div class="section-divider"><span></span><i>✦</i><span></span></div>
+    <h2 class="section-title">Will You Join <em>Our Day?</em></h2>
+    <p class="rsvp-sub">We are overjoyed to celebrate this milestone with you. Please let us know if you'll be joining us.</p>
+    <div class="rsvp-deadline">RSVP Deadline — June 25, 2026</div>
+  </div>
+  <div class="form-container reveal">
+    <div class="form-placeholder">
+      <p>To embed your Google Form:<br>Open your form → Click <strong>Send</strong> → Click the <strong>&lt;/&gt;</strong> icon → Copy the <strong>src URL</strong> → Replace this section with the iframe.</p>
+      <a href="mailto:josephloydanddenice@gmail.com" class="btn-primary">RSVP via Email</a>
+      <p class="form-note">josephloydanddenice@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">Joseph Loyd & Denice</div>
+  <div class="footer-divider"><span></span><i>✦</i><span></span></div>
+  <div class="footer-date">July 18, 2026 · Morong, Rizal</div>
+  <div class="footer-tag">#DENICEtinoparakayJOSEPHLOYD</div>
+  <div class="footer-credit">Made with love · Love & Crafts Digital Invitations</div>
+</footer>
+
+<script>
+/* ── LOVER SKY FLOATING PETALS ── */
+(function(){
+  const canvas = document.getElementById('petal-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, petals = [];
+
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* Lover palette: dusty blue dominant, hints of blush & lavender */
+  const cols = [
+    'rgba(143,178,204,',   /* dusty blue */
+    'rgba(107,150,181,',   /* slate blue */
+    'rgba(184,208,232,',   /* sky blue */
+    'rgba(200,184,224,',   /* soft lavender */
+    'rgba(244,200,220,',   /* blush pink */
+    'rgba(255,255,255,',   /* white sparkle */
+  ];
+
+  function mkPetal(){
+    return {
+      x:Math.random()*W, y:-10,
+      r:1.2+Math.random()*3.2,
+      col:cols[Math.floor(Math.random()*cols.length)],
+      op:0.1+Math.random()*0.22,
+      vx:(Math.random()-0.5)*0.45,
+      vy:0.28+Math.random()*0.55,
+      wo:Math.random()*Math.PI*2,
+      ws:0.006+Math.random()*0.014,
+    };
+  }
+  for(let i=0;i<65;i++){const p=mkPetal();p.y=Math.random()*H;petals.push(p)}
+
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    if(petals.length<65) petals.push(mkPetal());
+    petals.forEach((p,i)=>{
+      p.wo+=p.ws;
+      p.x+=p.vx+Math.sin(p.wo)*0.4;
+      p.y+=p.vy;
+      if(p.y>H+10) petals[i]=mkPetal();
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.col+p.op+')';
+      ctx.fill();
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ── INTRO PARTICLES ── */
+(function(){
+  const p = document.getElementById('particles');
+  for(let i=0;i<65;i++){
+    const s = document.createElement('span');
+    const sz = 1.5+Math.random()*3;
+    s.style.cssText=`--px:${Math.random()*100}%;--pd:${10+Math.random()*18}s;--pde:${-Math.random()*22}s;--ps:${sz}px;--pa:${0.4+Math.random()*0.5};`;
+    p.appendChild(s);
+  }
+})();
+
+function skipIntro(){ document.getElementById('intro').classList.add('hidden') }
+setTimeout(()=>{
+  document.getElementById('intro').style.transition='opacity 2s ease,visibility 2s ease';
+  setTimeout(skipIntro,50);
+},5500);
+
+/* ── NAV ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open')}
+function closeMenu(){document.getElementById('nav-links').classList.remove('open')}
+
+/* ── HERO SLIDESHOW ── */
+let currentSlide=0; const totalSlides=4; let slideTimer;
+function goSlide(n){
+  const slides=document.querySelectorAll('.hero-slide');
+  const dots=document.querySelectorAll('.hero-dot');
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide=n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  resetTimer();
+}
+function nextSlide(){goSlide((currentSlide+1)%totalSlides)}
+function resetTimer(){clearInterval(slideTimer);slideTimer=setInterval(nextSlide,5500)}
+slideTimer=setInterval(nextSlide,5500);
+
+/* ── COUNTDOWN ── */
+function updateCountdown(){
+  const wedding=new Date('2026-07-18T13:00:00+08:00').getTime();
+  const diff=wedding-Date.now();
+  if(diff<=0){
+    document.querySelector('.countdown-grid').innerHTML=
+      '<div style="font-family:\'Cormorant Garamond\',serif;font-size:3rem;font-weight:300;font-style:italic;color:#fff">Today is the Day! 🎉</div>';
+    return;
+  }
+  const s=Math.floor(diff/1000);
+  document.getElementById('cd-days').textContent=Math.floor(s/86400);
+  document.getElementById('cd-hours').textContent=String(Math.floor((s%86400)/3600)).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(Math.floor((s%3600)/60)).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s%60).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* ── SCROLL REVEAL ── */
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08});
+reveals.forEach(r=>io.observe(r));
+
+/* ── MUSIC ── */
+function toggleMusic(){
+  const a=document.getElementById('bgm');
+  const b=document.getElementById('music-btn');
+  if(a.paused){a.volume=0.28;a.play().catch(()=>{});b.classList.add('playing');b.textContent='♫';}
+  else{a.pause();b.classList.remove('playing');b.textContent='♪';}
+}
+
+/* ── LOVER AUDIO CONTROLLER SCRIPT ── */
+function toggleAudio() {
+  const audio = document.getElementById('loverAudio');
+  const disc = document.getElementById('vinylDisc');
+  const statusText = document.getElementById('audioStatus');
+
+  if (audio.paused) {
+    audio.play()
+      .then(() => {
+        disc.classList.add('vinyl-spin');
+        statusText.textContent = "Now Playing";
+        statusText.style.color = "#8fb2cc"; /* Shifts label to Dusty Blue when active */
+      })
+      .catch(error => {
+        console.log("Playback blocked by browser settings until user interacts further.");
+      });
+  } else {
+    audio.pause();
+    disc.classList.remove('vinyl-spin');
+    statusText.textContent = "Music Paused";
+    statusText.style.color = "#f4b8cc"; /* Returns to Lover Pink */
+  }
+}
+</script>
+</body>
+</html>
