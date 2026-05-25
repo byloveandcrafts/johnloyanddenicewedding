@@ -81,28 +81,32 @@ h1,h2,h3,
 }
 #intro.hidden{opacity:0;visibility:hidden;pointer-events:none}
 
-/* Intro photo background */
-.intro-bg{
-  position:absolute;inset:0;
-  background-image:url('intro-photo.jpg');
-  background-size:cover;
-  background-position:center;
-  animation:kb-zoom 18s ease-in-out infinite alternate;
+/* ── INTRO PHOTO BACKGROUND ── */
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('intro-photo.jpg'); /* 👈 place your photo here */
+  background-size: cover;
+  background-position: center;
+  animation: kb-zoom 18s ease-in-out infinite alternate;
 }
-@keyframes kb-zoom{
-  0%{transform:scale(1) translate(0,0)}
-  100%{transform:scale(1.08) translate(-1%,-1%)}
+@keyframes kb-zoom {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
 }
-/* Cinematic overlay on top of photo */
-.intro-bg::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(175deg,
-    rgba(28,45,63,0.72) 0%,
-    rgba(46,74,98,0.55) 20%,
-    rgba(79,122,154,0.38) 40%,
-    rgba(168,136,120,0.28) 60%,
-    rgba(180,120,140,0.42) 78%,
-    rgba(46,74,98,0.65) 100%
+
+/* ── DARK OVERLAY (reduced transparency) ── */
+.intro-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(175deg,
+    rgba(28, 45, 63, 0.42) 0%,
+    rgba(46, 74, 98, 0.30) 20%,
+    rgba(79, 122, 154, 0.18) 40%,
+    rgba(168, 136, 120, 0.12) 60%,
+    rgba(180, 120, 140, 0.22) 78%,
+    rgba(46, 74, 98, 0.38) 100%
   );
 }
 
