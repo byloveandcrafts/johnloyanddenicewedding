@@ -1316,11 +1316,13 @@ p a:hover::after, .info-block a:hover::after {
   .hero-scroll{bottom:1.2rem}
 }
 
-/* ── Photostrip: smaller items on mobile ── */
+/* ── Photostrip: full-width items on mobile ── */
 @media(max-width:600px){
-  .strip-item.land{width:260px!important;height:173px!important}
-  .strip-item.port{width:145px!important;height:215px!important}
+  .strip-item.land{width:92vw!important;height:calc(92vw * 0.685)!important}
+  .strip-item.port{width:92vw!important;height:calc(92vw * 1.48)!important}
+  .strip-track{gap:1rem}
   .photostrip-section{padding:2.5rem 0}
+  .photostrip-section::before,.photostrip-section::after{width:60px}
 }
 
 /* ── Countdown: stack separators on mobile ── */
