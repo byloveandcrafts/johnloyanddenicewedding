@@ -232,7 +232,7 @@ h1,h2,h3,
   cursor:pointer;
   transition:all 0.4s;
   opacity:0;
-  animation:fadein 1s ease 3s forwards;
+  animation:fadein 1s ease 1.4s forwards;
   margin-top:0.6rem;
 }
 .intro-enter:hover{
@@ -741,8 +741,10 @@ section{padding:7rem 1.5rem;text-align:center}
 .tl-event{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.1rem;color:var(--text-dark);letter-spacing:0.01em}
 @media(max-width:500px){
   .timeline-wrap::before{left:16px}
-  .tl-item{grid-template-columns:auto 1fr;gap:0.8rem}
-  .tl-time{display:none}
+  .tl-item{grid-template-columns:auto 1fr;gap:0.8rem;align-items:flex-start}
+  .tl-time{display:block;text-align:left;font-size:0.75rem;color:var(--db-400);margin-top:0.15rem;order:3}
+  .tl-dot{order:1;align-self:flex-start;margin-top:0.22rem}
+  .tl-content{order:2;display:flex;flex-direction:column}
 }
 
 /* ═══════════════════════════════
@@ -1980,15 +1982,15 @@ function closeMenu(){ var n=document.getElementById('nav-links'); if(n) n.classL
         <span class="ent-role" style="border-bottom:none;padding-bottom:0;margin-bottom:0.8rem">Bridesmaids</span>
         <div class="ent-name">Jewel San Jose</div>
         <div class="ent-name">Mackenzie Francisco</div>
-        <div class="ent-name">Eloiza Brin</div>
+        <div class="ent-name">Maria Eloiza Brin</div>
         <div class="ent-name">Mica Ella Beran</div>
       </div>
       <div>
         <span class="ent-role" style="border-bottom:none;padding-bottom:0;margin-bottom:0.8rem">Groomsmen</span>
-        <div class="ent-name">Stefhano Mirabueno</div>
-        <div class="ent-name">Russell Ramos</div>
-        <div class="ent-name">Lei Martin</div>
-        <div class="ent-name">John Kevin Raymundo</div>
+        <div class="ent-name">Stefhano Mitch Mirabueno</div>
+        <div class="ent-name">Jann Russell Ramos</div>
+        <div class="ent-name">Israel Persous Miguel</div>
+        <div class="ent-name">Justin Cedric Raymundo</div>
       </div>
     </div>
   </div>
@@ -2019,10 +2021,10 @@ function closeMenu(){ var n=document.getElementById('nav-links'); if(n) n.classL
   <div class="special-grid reveal">
     <div class="special-card"><span class="special-role">Candle</span><div class="special-names">Rondelle Gabas<br>April Ann Batalla</div></div>
     <div class="special-card"><span class="special-role">Veil</span><div class="special-names">Mark Christian Villere<br>Abegail Competente</div></div>
-    <div class="special-card"><span class="special-role">Cord</span><div class="special-names">Justin Raymundo<br>Danicah San Miguel</div></div>
-    <div class="special-card"><span class="special-role">Ring Bearer</span><div class="special-names">King Ferrer</div></div>
-    <div class="special-card"><span class="special-role">Bible Bearer</span><div class="special-names">Justin Quiacos</div></div>
-    <div class="special-card"><span class="special-role">Coin Bearer</span><div class="special-names">Diether San Juan</div></div>
+    <div class="special-card"><span class="special-role">Cord</span><div class="special-names">Justin Cedric Raymundo<br>Danicah Marie San Miguel</div></div>
+    <div class="special-card"><span class="special-role">Ring Bearer</span><div class="special-names">King Elizalde Ferrer</div></div>
+    <div class="special-card"><span class="special-role">Bible Bearer</span><div class="special-names">Mark Justin Quiacos</div></div>
+    <div class="special-card"><span class="special-role">Coin Bearer</span><div class="special-names">Diether Mark San Juan</div></div>
     <div class="special-card"><span class="special-role">Flower Girls</span><div class="special-names">Darish Mae Amonelo<br>Martina Villere</div></div>
     <div class="special-card"><span class="special-role">Banner Bearer</span><div class="special-names">John Jaderikk Ebuenga</div></div>
   </div>
