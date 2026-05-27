@@ -628,8 +628,116 @@ section{padding:7rem 1.5rem;text-align:center}
   background:radial-gradient(ellipse at 50% 50%,rgba(200,184,224,0.15) 0%,transparent 65%);
   pointer-events:none;
 }
+#story{background:linear-gradient(160deg,#f0e8f4 0%,#e8f0f8 40%,#f4e8f0 100%)}
 #reminders{background:linear-gradient(160deg,var(--db-50) 0%,#dce8f4 50%,#ecd8e8 100%)}
 #rsvp{background:linear-gradient(165deg,#e4eef8 0%,var(--db-50) 55%,#ead8e8 100%)}
+
+/* ═══════════════════════════════
+   OUR STORY
+═══════════════════════════════ */
+#story{padding:7rem 1.5rem;position:relative;overflow:hidden}
+#story::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 20%,rgba(200,184,224,0.18) 0%,transparent 55%),
+    radial-gradient(ellipse at 90% 80%,rgba(143,178,204,0.14) 0%,transparent 50%);
+}
+
+.story-inner{max-width:780px;margin:0 auto;position:relative;z-index:1}
+
+/* Vertical timeline spine */
+.story-timeline{
+  position:relative;
+  margin-top:3.5rem;
+  display:flex;flex-direction:column;gap:0;
+}
+.story-timeline::before{
+  content:'';
+  position:absolute;left:50%;top:0;bottom:0;
+  transform:translateX(-50%);
+  width:1px;
+  background:linear-gradient(180deg,transparent,var(--gold-light) 15%,var(--gold-light) 85%,transparent);
+  opacity:0.55;
+}
+
+/* Each story block */
+.story-block{
+  display:grid;
+  grid-template-columns:1fr 60px 1fr;
+  align-items:start;
+  gap:0;
+  margin-bottom:3rem;
+}
+.story-block.left .story-text-wrap{
+  grid-column:1;text-align:right;padding-right:2.2rem;
+}
+.story-block.left .story-node-wrap{grid-column:2;display:flex;justify-content:center;padding-top:0.4rem}
+.story-block.left .story-spacer{grid-column:3}
+
+.story-block.right .story-spacer{grid-column:1}
+.story-block.right .story-node-wrap{grid-column:2;display:flex;justify-content:center;padding-top:0.4rem}
+.story-block.right .story-text-wrap{
+  grid-column:3;text-align:left;padding-left:2.2rem;
+}
+
+.story-node{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 3px rgba(200,169,110,0.2),0 0 12px rgba(200,169,110,0.45);
+  flex-shrink:0;
+}
+
+.story-year{
+  font-family:'Jost',sans-serif;font-weight:300;font-size:0.62rem;
+  letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.4rem;display:block;
+}
+.story-heading{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:clamp(1.25rem,2.8vw,1.7rem);
+  color:var(--db-800);line-height:1.25;margin-bottom:0.7rem;
+}
+.story-body{
+  font-family:'Jost',sans-serif;font-weight:300;font-size:0.82rem;
+  color:var(--text-mid);line-height:1.85;
+}
+
+.story-closing{
+  text-align:center;margin-top:3.5rem;padding-top:3rem;
+  border-top:1px solid rgba(143,178,204,0.2);
+  position:relative;z-index:1;
+}
+.story-closing-quote{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(2rem,5vw,3.4rem);
+  color:var(--db-600);line-height:1.3;
+  text-shadow:0 2px 20px rgba(79,122,154,0.18);
+  display:block;margin-bottom:0.6rem;
+}
+.story-closing-sub{
+  font-family:'Jost',sans-serif;font-size:0.68rem;
+  letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--db-400);font-weight:300;
+}
+
+@media(max-width:600px){
+  .story-timeline::before{left:22px}
+  .story-block{
+    grid-template-columns:44px 1fr;
+    grid-template-rows:auto;
+  }
+  .story-block.left .story-text-wrap,
+  .story-block.right .story-text-wrap{
+    grid-column:2;grid-row:1;
+    text-align:left;padding-left:1.4rem;padding-right:0;
+  }
+  .story-block.left .story-node-wrap,
+  .story-block.right .story-node-wrap{
+    grid-column:1;grid-row:1;padding-top:0.35rem;justify-content:flex-start;padding-left:15px;
+  }
+  .story-block.left .story-spacer,
+  .story-block.right .story-spacer{display:none}
+}
 
 /* ═══════════════════════════════
    COUNTDOWN
@@ -853,7 +961,7 @@ section{padding:7rem 1.5rem;text-align:center}
 .hashtag-divider i{font-style:normal;color:rgba(200,184,224,0.6);font-size:0.85rem}
 .hashtag-main{
   font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;
-  font-size:clamp(1.6rem,4.5vw,3.2rem);
+  font-size:clamp(2.4rem,6.5vw,5rem);
   color:#fff;letter-spacing:0.01em;line-height:1.2;margin-bottom:1rem;
   text-shadow:0 2px 30px rgba(46,74,98,0.5);
 }
@@ -1388,7 +1496,7 @@ p a:hover::after, .info-block a:hover::after {
 /* ── Hashtag: prevent long hashtag overflow ── */
 @media(max-width:480px){
   .hashtag-main{
-    font-size:clamp(1rem,4.5vw,1.8rem)!important;
+    font-size:clamp(1.6rem,6.5vw,2.6rem)!important;
     word-break:break-word;
     padding:0 1rem;
   }
@@ -1724,6 +1832,7 @@ function closeMenu(){ var n=document.getElementById('nav-links'); if(n) n.classL
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
+    <li><a href="#story" onclick="closeMenu()">Our Story</a></li>
     <li><a href="#details" onclick="closeMenu()">Details</a></li>
     <li><a href="#timeline" onclick="closeMenu()">Program</a></li>
     <li><a href="#attire" onclick="closeMenu()">Attire</a></li>
@@ -1827,6 +1936,71 @@ function closeMenu(){ var n=document.getElementById('nav-links'); if(n) n.classL
     <div class="cdown-unit"><div class="cdown-num" id="cd-secs">--</div><div class="cdown-label">Seconds</div></div>
   </div>
 </div>
+
+
+<!-- ══ OUR STORY ══ -->
+<section id="story">
+  <div class="story-inner">
+    <div class="reveal">
+      <span class="section-label">How It All Began</span>
+      <div class="section-divider"><span></span><i>✦</i><span></span></div>
+      <h2 class="section-title">Our <em>Story</em></h2>
+    </div>
+
+    <div class="story-timeline">
+
+      <!-- Block 1 — First Meeting -->
+      <div class="story-block left reveal">
+        <div class="story-text-wrap">
+          <span class="story-year">2016</span>
+          <h3 class="story-heading">The Beginning</h3>
+          <p class="story-body">Our story began when we first met as classmates in high school. What started as playful teasing and lighthearted jokes slowly blossomed into something neither of us expected — a love story written by God.</p>
+        </div>
+        <div class="story-node-wrap"><div class="story-node"></div></div>
+        <div class="story-spacer"></div>
+      </div>
+
+      <!-- Block 2 — Growing Love -->
+      <div class="story-block right reveal">
+        <div class="story-spacer"></div>
+        <div class="story-node-wrap"><div class="story-node"></div></div>
+        <div class="story-text-wrap">
+          <span class="story-year">Through the Years</span>
+          <h3 class="story-heading">A Love That Grew</h3>
+          <p class="story-body">From a simple high school romance, our love grew deeper and stronger with time, carrying us through every season of life and shaping the journey we share today.</p>
+        </div>
+      </div>
+
+      <!-- Block 3 — The Proposal -->
+      <div class="story-block left reveal">
+        <div class="story-text-wrap">
+          <span class="story-year">The Proposal</span>
+          <h3 class="story-heading">A Full-Circle Moment</h3>
+          <p class="story-body">One of the most unforgettable chapters of our journey was the proposal — a heartfelt full-circle moment that reminded us of how far we've come and how much we've grown together.</p>
+        </div>
+        <div class="story-node-wrap"><div class="story-node"></div></div>
+        <div class="story-spacer"></div>
+      </div>
+
+      <!-- Block 4 — Now -->
+      <div class="story-block right reveal">
+        <div class="story-spacer"></div>
+        <div class="story-node-wrap"><div class="story-node"></div></div>
+        <div class="story-text-wrap">
+          <span class="story-year">July 18, 2026</span>
+          <h3 class="story-heading">A New Chapter Begins</h3>
+          <p class="story-body">Now, as we stand at the threshold of a new chapter, we are filled with gratitude for the love, support, and prayers of our families and friends who have been part of our journey from the very beginning.</p>
+        </div>
+      </div>
+
+    </div><!-- /story-timeline -->
+
+    <div class="story-closing reveal">
+      <span class="story-closing-quote">With hearts full of love and excitement, we look forward to forever.</span>
+      <span class="story-closing-sub">Joseph Loyd &amp; Denice · July 18, 2026</span>
+    </div>
+  </div>
+</section>
 
 <!-- ══ DETAILS ══ -->
  <section id="details">
@@ -2021,7 +2195,7 @@ function closeMenu(){ var n=document.getElementById('nav-links'); if(n) n.classL
   <div class="special-grid reveal">
     <div class="special-card"><span class="special-role">Candle</span><div class="special-names">Rondelle Gabas<br>April Ann Batalla</div></div>
     <div class="special-card"><span class="special-role">Veil</span><div class="special-names">Mark Christian Villere<br>Abegail Competente</div></div>
-    <div class="special-card"><span class="special-role">Cord</span><div class="special-names">Justin Cedric Raymundo<br>Danicah Marie San Miguel</div></div>
+    <div class="special-card"><span class="special-role">Cord</span><div class="special-names">John Kevin Raymundo<br>Danicah Marie San Miguel</div></div>
     <div class="special-card"><span class="special-role">Ring Bearer</span><div class="special-names">King Elizalde Ferrer</div></div>
     <div class="special-card"><span class="special-role">Bible Bearer</span><div class="special-names">Mark Justin Quiacos</div></div>
     <div class="special-card"><span class="special-role">Coin Bearer</span><div class="special-names">Diether Mark San Juan</div></div>
